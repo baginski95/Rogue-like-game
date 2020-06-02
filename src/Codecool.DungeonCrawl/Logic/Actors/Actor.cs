@@ -34,12 +34,8 @@ namespace Codecool.DungeonCrawl.Logic.Actors
         {
             Cell nextCell = Cell.GetNeighbor(dx, dy);
             CellType cellType = nextCell.Type;
-            if (nextCell.Actor != null)
-            {
-                System.Console.WriteLine("sffsf");
-            }
-
             System.Console.WriteLine(nextCell.GameMap.Skeleton.GetType());
+
             if (nextCell.Actor != null && nextCell.Actor.Tilename == "skeleton")
             { }
             else if (cellType == CellType.Wall)
