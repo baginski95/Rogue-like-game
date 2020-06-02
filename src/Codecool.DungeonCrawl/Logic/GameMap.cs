@@ -16,6 +16,11 @@ namespace Codecool.DungeonCrawl.Logic
         /// A sample enemy
         /// </summary>
         public Skeleton Skeleton;
+
+        /// <summary>
+        /// A basic weapon - Sword
+        /// </summary>
+        public Weapon Sword;
         private readonly Cell[,] _cells;
 
         /// <summary>

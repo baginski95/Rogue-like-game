@@ -9,6 +9,7 @@ namespace Codecool.DungeonCrawl.Logic.Actors
         /// Initializes a new instance of the <see cref="Skeleton"/> class.
         /// </summary>
         /// <param name="cell">The starting cell</param>
+        /// DLACZEGO *********************************
         public Skeleton(Cell cell)
             : base(cell)
         {

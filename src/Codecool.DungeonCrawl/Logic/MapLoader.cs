@@ -23,6 +23,7 @@ namespace Codecool.DungeonCrawl.Logic
             GameMap map = new GameMap(width, height, CellType.Empty);
             for (var y = 0; y < height; y++)
             {
+                //czy tu chodzi o wydajnosc
                 var line = lines[y + 1];
                 for (int x = 0; x < width; x++)
                 {
@@ -39,6 +40,12 @@ namespace Codecool.DungeonCrawl.Logic
                                 break;
                             case '.':
                                 cell.Type = CellType.Floor;
+                                break;
+                            case 'S':
+                                cell.Type = CellType.Floor;
+
+                                // TODO change this code to allow more than one enemy
+                                map.Sword = new Weapon(10, "Short sword", cell);
                                 break;
                             case 's':
                                 cell.Type = CellType.Floor;

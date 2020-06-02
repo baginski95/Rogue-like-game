@@ -24,6 +24,11 @@ namespace Codecool.DungeonCrawl
         /// </summary>
         public static readonly Rectangle SkeletonTile = CreateTile(29, 6);
 
+        /// <summary>
+        /// Coordinates of the sword graphic.
+        /// </summary>
+        public static readonly Rectangle SwordTile = CreateTile(3, 30);
+
         private static readonly Dictionary<string, Rectangle> TileMap = new Dictionary<string, Rectangle>();
 
         static Tiles()

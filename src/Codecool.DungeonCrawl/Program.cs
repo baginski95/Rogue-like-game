@@ -35,11 +35,17 @@ namespace Codecool.DungeonCrawl
 
         private void OnStart()
         {
+            //co to jest*********************************
             var stage = PerlinApp.Stage;
+            stage.EnterFrameEvent += StageOnEnterFrameEvent;
 
-            // health textField
+            _mapContainer = new Sprite();
+            stage.AddChild(_mapContainer);
+            DrawMap();
+
+            // health textField *************** o co kaman
             _healthTextField = new TextField(
-                PerlinApp.FontRobotoMono.CreateFont(14),
+                PerlinApp.FontRobotoMono.CreateFont(18),
                 _map.Player.Health.ToString(),
                 false);
             _healthTextField.HorizontalAlign = HorizontalAlignment.Center;
@@ -48,19 +54,22 @@ namespace Codecool.DungeonCrawl
             _healthTextField.X = _map.Width * Tiles.TileWidth / 2 - 50;
             stage.AddChild(_healthTextField);
 
-            stage.EnterFrameEvent += StageOnEnterFrameEvent;
-
-            _mapContainer = new Sprite();
-            stage.AddChild(_mapContainer);
-            DrawMap();
+            //********************************
+            //PERKE tu jest bez _ a player jest z _
 
             var skeletonGfx = new Sprite("tiles.png", false, Tiles.SkeletonTile);
+
             skeletonGfx.X = _map.Skeleton.X * Tiles.TileWidth;
             skeletonGfx.Y = _map.Skeleton.Y * Tiles.TileWidth;
             stage.AddChild(skeletonGfx);
 
             _playerGfx = new Sprite("tiles.png", false, Tiles.PlayerTile);
             stage.AddChild(_playerGfx);
+
+            var swordGfx = new Sprite("tiles.png", false, Tiles.SwordTile);
+            swordGfx.X = _map.Sword.X * Tiles.TileWidth;
+            swordGfx.Y = _map.Sword.Y * Tiles.TileWidth;
+            stage.AddChild(swordGfx);
         }
 
         private void DrawMap()

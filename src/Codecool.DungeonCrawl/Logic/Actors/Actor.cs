@@ -33,9 +33,23 @@ namespace Codecool.DungeonCrawl.Logic.Actors
         public void Move(int dx, int dy)
         {
             Cell nextCell = Cell.GetNeighbor(dx, dy);
-            Cell.Actor = null;
-            nextCell.Actor = this;
-            Cell = nextCell;
+            CellType cellType = nextCell.Type;
+            if (nextCell.Actor != null)
+            {
+                System.Console.WriteLine("sffsf");
+            }
+
+            System.Console.WriteLine(nextCell.GameMap.Skeleton.GetType());
+            if (nextCell.Actor != null && nextCell.Actor.Tilename == "skeleton")
+            { }
+            else if (cellType == CellType.Wall)
+            { }
+            else
+            {
+                Cell.Actor = null;
+                nextCell.Actor = this;
+                Cell = nextCell;
+            }
         }
 
         /// <summary>

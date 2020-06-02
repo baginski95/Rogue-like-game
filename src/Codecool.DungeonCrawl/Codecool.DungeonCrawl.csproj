@@ -21,5 +21,9 @@
       <PackageReference Include="Matyasf.Perlin" Version="1.0.0" />
       <PackageReference Include="StyleCop.Analyzers" Version="1.1.118" />
     </ItemGroup>
+    
+    <ItemGroup>
+      <Folder Include="Logic\Actors\Equipment\" />
+    </ItemGroup>
 
 </Project>

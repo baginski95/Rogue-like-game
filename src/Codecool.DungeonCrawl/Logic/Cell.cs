@@ -16,6 +16,9 @@ namespace Codecool.DungeonCrawl.Logic
         /// <param name="x">X coordinate of the cell</param>
         /// <param name="y">Y coordinate of the cell</param>
         /// <param name="type">Type of the cell</param>
+        /// **********************************
+        /// DLACZEGO GAME MAP JEST DLA KAZDEGO _cells
+        /// DLACZEGO MUSI BYC _gameMap
         public Cell(GameMap gameMap, int x, int y, CellType type)
         {
             _gameMap = gameMap;
@@ -28,6 +31,11 @@ namespace Codecool.DungeonCrawl.Logic
         /// Type of the cell
         /// </summary>
         public CellType Type;
+
+        /// <summary>
+        /// Gets Map of the cell
+        /// </summary>
+        public GameMap GameMap { get => _gameMap; }
 
         /// <summary>
         /// The actor on the cell, null of none.
