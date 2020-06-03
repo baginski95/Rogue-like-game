@@ -1,4 +1,6 @@
-﻿using Codecool.DungeonCrawl.Logic;
+﻿using System.Collections;
+using Codecool.DungeonCrawl.Logic;
+using Codecool.DungeonCrawl.Logic.Actors;
 using Perlin;
 using Perlin.Display;
 using SixLabors.Fonts;
@@ -55,13 +57,36 @@ namespace Codecool.DungeonCrawl
             stage.AddChild(_healthTextField);
 
             //********************************
-            //PERKE tu jest bez _ a player jest z _
+            //Czy da się w tym kontekscie uzyc FORa
+            //for (int i = 0; i < _map.Skeletons.Count; i++)
+            //{
+            //    var skeletonGfx = new Sprite("tiles.png", false, Tiles.SkeletonTile);
 
-            var skeletonGfx = new Sprite("tiles.png", false, Tiles.SkeletonTile);
+            //    skeletonGfx.X = _map.Skeletons[i].X * Tiles.TileWidth;
+            //    skeletonGfx.Y = _map.Skeletons[i].Y * Tiles.TileWidth;
+            //    stage.AddChild(skeletonGfx);
+            //}
 
-            skeletonGfx.X = _map.Skeleton.X * Tiles.TileWidth;
-            skeletonGfx.Y = _map.Skeleton.Y * Tiles.TileWidth;
-            stage.AddChild(skeletonGfx);
+            foreach (Skeleton skeleton in _map.Skeletons)
+            {
+                System.Console.WriteLine("foreach");
+                var skeletonGfx = new Sprite("tiles.png", false, Tiles.SkeletonTile);
+
+                skeletonGfx.X = skeleton.X * Tiles.TileWidth;
+                skeletonGfx.Y = skeleton.Y * Tiles.TileWidth;
+                stage.AddChild(skeletonGfx);
+            }
+
+            //var skeletonGfx = new Sprite("tiles.png", false, Tiles.SkeletonTile);
+
+            //skeletonGfx.X = _map.Skeleton.X * Tiles.TileWidth;
+            //skeletonGfx.Y = _map.Skeleton.Y * Tiles.TileWidth;
+            //stage.AddChild(skeletonGfx);
+
+            //var skeletonGfx1 = new Sprite("tiles.png", false, Tiles.SkeletonTile);
+            //skeletonGfx1.X = _map.Skeleton1.X * Tiles.TileWidth;
+            //skeletonGfx1.Y = _map.Skeleton1.Y * Tiles.TileWidth;
+            //stage.AddChild(skeletonGfx1);
 
             _playerGfx = new Sprite("tiles.png", false, Tiles.PlayerTile);
             stage.AddChild(_playerGfx);
@@ -100,22 +125,22 @@ namespace Codecool.DungeonCrawl
         private void StageOnEnterFrameEvent(DisplayObject target, float elapsedtimesecs)
         {
             // process inputs
-            if (KeyboardInput.IsKeyPressedThisFrame(Key.Up))
+            if (KeyboardInput.IsKeyPressedThisFrame(Veldrid.Key.Up))
             {
                 _map.Player.Move(0, -1);
             }
 
-            if (KeyboardInput.IsKeyPressedThisFrame(Key.Down))
+            if (KeyboardInput.IsKeyPressedThisFrame(Veldrid.Key.Down))
             {
                 _map.Player.Move(0, 1);
             }
 
-            if (KeyboardInput.IsKeyPressedThisFrame(Key.Left))
+            if (KeyboardInput.IsKeyPressedThisFrame(Veldrid.Key.Left))
             {
                 _map.Player.Move(-1, 0);
             }
 
-            if (KeyboardInput.IsKeyPressedThisFrame(Key.Right))
+            if (KeyboardInput.IsKeyPressedThisFrame(Veldrid.Key.Right))
             {
                 _map.Player.Move(1, 0);
             }

@@ -31,7 +31,8 @@ namespace Codecool.DungeonCrawl.Logic.Actors
         {
             Cell nextCell = Cell.GetNeighbor(dx, dy);
             CellType cellType = nextCell.Type;
-            System.Console.WriteLine(nextCell.GameMap.Skeleton.GetType());
+
+            //System.Console.WriteLine(nextCell.GameMap.Skeleton.GetType());
 
             // null propagation + null coalescing - jezeli aktor nie jest null to
             // zwracant IsPassable, a jesli nie to zwraca Actora.

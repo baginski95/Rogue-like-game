@@ -1,3 +1,4 @@
+using System.Collections;
 using System.IO;
 using Codecool.DungeonCrawl.Logic.Actors;
 
@@ -19,6 +20,7 @@ namespace Codecool.DungeonCrawl.Logic
             var dimensions = lines[0].Split(" ");
             var width = int.Parse(dimensions[0]);
             var height = int.Parse(dimensions[1]);
+            ArrayList skeletons = new ArrayList();
 
             GameMap map = new GameMap(width, height, CellType.Empty);
             for (var y = 0; y < height; y++)
@@ -58,7 +60,9 @@ namespace Codecool.DungeonCrawl.Logic
                                 System.Console.WriteLine("creating skeleton");
 
                                 // TODO change this code to allow more than one enemy
-                                map.Skeleton = new Skeleton(cell);
+                                skeletons.Add(new Skeleton(cell));
+
+                                // map.Skeleton = new Skeleton(cell);
                                 break;
                             case '@':
                                 cell.Type = CellType.Floor;
@@ -71,6 +75,7 @@ namespace Codecool.DungeonCrawl.Logic
                 }
             }
 
+            map.Skeletons = skeletons;
             return map;
         }
     }

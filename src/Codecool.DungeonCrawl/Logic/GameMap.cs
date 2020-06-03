@@ -1,3 +1,4 @@
+using System.Collections;
 using Codecool.DungeonCrawl.Logic.Actors;
 
 namespace Codecool.DungeonCrawl.Logic
@@ -15,9 +16,19 @@ namespace Codecool.DungeonCrawl.Logic
         /// <summary>
         /// A sample enemy
         /// </summary>
-        public Skeleton Skeleton;
+        public Skeleton Skeleton1;
+
+        /// <summary>
+        /// A sample enemy
+        /// </summary>
+        public Skeleton Skeleton2;
 
         // public Character Skeleton = new Skeleton
+
+        /// <summary>
+        /// A sample enemy arrayList
+        /// </summary>
+        public ArrayList Skeletons = new ArrayList();
 
         /// <summary>
         /// First key
