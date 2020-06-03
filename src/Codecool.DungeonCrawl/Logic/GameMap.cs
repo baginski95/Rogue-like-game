@@ -31,7 +31,6 @@ namespace Codecool.DungeonCrawl.Logic
         /// <param name="defaultCellType">Default cell type</param>
         public GameMap(int width, int height, CellType defaultCellType)
         {
-            Width = width;
             Height = height;
             _cells = new Cell[width, height];
             for (var x = 0; x < width; x++)

@@ -16,5 +16,8 @@ namespace Codecool.DungeonCrawl.Logic.Actors
 
         /// <inheritdoc/>
         public override string Tilename => "player";
+
+        /// <inheritdoc/>
+        public override bool IsPassable => false;
     }
 }

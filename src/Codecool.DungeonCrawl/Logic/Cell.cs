@@ -67,5 +67,7 @@ namespace Codecool.DungeonCrawl.Logic
         /// Gets the Y coordinate
         /// </summary>
         public int Y { get; private set; }
+
+        // metoda TryWalk
     }
 }

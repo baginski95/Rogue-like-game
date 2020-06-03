@@ -26,6 +26,11 @@ namespace Codecool.DungeonCrawl.Logic.Actors
         }
 
         /// <summary>
+        /// Gets a value indicating whether initializes a new instance of the <see cref="Actor"/> class.
+        /// </summary>
+        public abstract bool IsPassable { get; }
+
+        /// <summary>
         /// Moves this actor by the given amount
         /// </summary>
         /// <param name="dx">X amoount</param>
@@ -36,7 +41,10 @@ namespace Codecool.DungeonCrawl.Logic.Actors
             CellType cellType = nextCell.Type;
             System.Console.WriteLine(nextCell.GameMap.Skeleton.GetType());
 
-            if (nextCell.Actor != null && nextCell.Actor.Tilename == "skeleton")
+            // null propagation + null coalescing - jezeli aktor nie jest null to
+            // zwracant IsPassable, a jesli nie to zwraca Actora.
+            // Jesli null po lewej to zwroci null to zwraca to co po prawej
+            if (nextCell.Actor?.IsPassable ?? false)
             { }
             else if (cellType == CellType.Wall)
             { }
