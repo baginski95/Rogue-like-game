@@ -3,7 +3,7 @@ namespace Codecool.DungeonCrawl.Logic.Actors
     /// <summary>
     /// Sample enemy
     /// </summary>
-    public class Skeleton : Actor
+    public class Skeleton : Character
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Skeleton"/> class.
@@ -17,5 +17,8 @@ namespace Codecool.DungeonCrawl.Logic.Actors
 
         /// <inheritdoc/>
         public override string Tilename => "skeleton";
+
+        /// <inheritdoc/>
+        public override bool IsPassable => false;
     }
 }
