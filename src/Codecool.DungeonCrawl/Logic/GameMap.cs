@@ -17,6 +17,13 @@ namespace Codecool.DungeonCrawl.Logic
         /// </summary>
         public Skeleton Skeleton;
 
+        // public Character Skeleton = new Skeleton
+
+        /// <summary>
+        /// First key
+        /// </summary>
+        public Key Key;
+
         /// <summary>
         /// A basic weapon - Sword
         /// </summary>

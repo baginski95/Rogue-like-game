@@ -47,5 +47,10 @@ namespace Codecool.DungeonCrawl.Logic.Actors
                 Cell = nextCell;
             }
         }
+
+        /// <summary>
+        /// lorem ipsum
+        /// </summary>
+        protected abstract void CollectItem();
     }
 }

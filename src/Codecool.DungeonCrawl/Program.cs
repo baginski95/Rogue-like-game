@@ -70,6 +70,11 @@ namespace Codecool.DungeonCrawl
             swordGfx.X = _map.Sword.X * Tiles.TileWidth;
             swordGfx.Y = _map.Sword.Y * Tiles.TileWidth;
             stage.AddChild(swordGfx);
+
+            var keyGfx = new Sprite("tiles.png", false, Tiles.KeyTile);
+            keyGfx.X = _map.Key.X * Tiles.TileWidth;
+            keyGfx.Y = _map.Key.Y * Tiles.TileWidth;
+            stage.AddChild(keyGfx);
         }
 
         private void DrawMap()

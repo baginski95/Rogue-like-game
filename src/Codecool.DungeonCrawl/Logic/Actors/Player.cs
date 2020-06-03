@@ -19,5 +19,11 @@ namespace Codecool.DungeonCrawl.Logic.Actors
 
         /// <inheritdoc/>
         public override bool IsNotPassable => false;
+
+        /// <inheritdoc/>
+        protected override void CollectItem()
+        {
+            System.Console.WriteLine(" ");
+        }
     }
 }

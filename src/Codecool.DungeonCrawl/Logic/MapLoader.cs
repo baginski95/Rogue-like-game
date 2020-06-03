@@ -47,6 +47,12 @@ namespace Codecool.DungeonCrawl.Logic
                                 // TODO change this code to allow more than one enemy
                                 map.Sword = new Weapon(10, "Short sword", cell);
                                 break;
+                            case 'K':
+                                cell.Type = CellType.Floor;
+
+                                // TODO change this code to allow more than one enemy
+                                map.Key = new Key(cell, "Golden Key");
+                                break;
                             case 's':
                                 cell.Type = CellType.Floor;
                                 System.Console.WriteLine("creating skeleton");

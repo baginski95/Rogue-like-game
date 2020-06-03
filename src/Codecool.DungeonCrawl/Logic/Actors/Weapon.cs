@@ -16,18 +16,25 @@ namespace Codecool.DungeonCrawl.Logic.Actors
         /// <param name="weaponName">Weapon name</param>
         /// <param name="range">Range</param>
         /// <param name="cell">The starting cell</param>
-        public Weapon(int power, string weaponName, Cell cell, int range = 1)
+        /// <param name="ammo">The starting ammo</param>
+        public Weapon(int power, string weaponName, Cell cell, int range = 1, int ammo = -1)
             : base(cell)
         {
             Power = power;
             WeaponName = weaponName;
             Range = range;
-        }
+            Ammo = ammo;
+                    }
 
         /// <summary>
         /// Gets the power
         /// </summary>
         public int Power { get; }
+
+        /// <summary>
+        /// Gets the ammo of weapon (-1 if melee)
+        /// </summary>
+        public int Ammo { get; }
 
         /// <summary>
         /// Gets the name of weapon
@@ -46,9 +53,6 @@ namespace Codecool.DungeonCrawl.Logic.Actors
         public override bool IsNotPassable => false;
 
         /// <inheritdoc/>
-        protected override void CollectItem()
-        {
-            Console.WriteLine("ffsfasfasf");
-        }
+        public override bool IsCollected => false;
     }
 }

@@ -20,6 +20,11 @@ namespace Codecool.DungeonCrawl
         public static readonly Rectangle PlayerTile = CreateTile(27, 0);
 
         /// <summary>
+        /// Coordinates of first key.
+        /// </summary>
+        public static readonly Rectangle KeyTile = CreateTile(16, 23);
+
+        /// <summary>
         /// Coordinates of the skeleton graphic.
         /// </summary>
         public static readonly Rectangle SkeletonTile = CreateTile(29, 6);
