@@ -41,5 +41,8 @@ namespace Codecool.DungeonCrawl.Logic.Actors
 
         /// <inheritdoc/>
         public override string Tilename => WeaponName;
+
+        /// <inheritdoc/>
+        public override bool IsNotPassable => false;
     }
 }

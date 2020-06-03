@@ -7,6 +7,7 @@ namespace Codecool.DungeonCrawl.Logic
     {
         Empty,
         Floor,
-        Wall
+        Wall,
+        Exit
     }
 }
