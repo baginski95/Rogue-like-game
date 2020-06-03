@@ -49,6 +49,7 @@ namespace Codecool.DungeonCrawl.Logic
                                 break;
                             case 's':
                                 cell.Type = CellType.Floor;
+                                System.Console.WriteLine("creating skeleton");
 
                                 // TODO change this code to allow more than one enemy
                                 map.Skeleton = new Skeleton(cell);

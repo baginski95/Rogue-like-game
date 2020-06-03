@@ -17,5 +17,10 @@ namespace Codecool.DungeonCrawl.Logic.Actors
             : base(cell)
         {
         }
+
+        /// <summary>
+        /// lorem ipsum
+        /// </summary>
+        protected abstract void CollectItem();
     }
 }
