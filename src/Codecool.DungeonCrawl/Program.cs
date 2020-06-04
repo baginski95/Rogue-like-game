@@ -17,8 +17,10 @@ namespace Codecool.DungeonCrawl
     {
         private GameMap _map;
         private TextField _healthTextField;
+        private TextField _additionalText;
         private Sprite _mapContainer;
         private Sprite _playerGfx;
+        private Stage _stage;
 
         /// <summary>
         /// Entry point
@@ -27,6 +29,10 @@ namespace Codecool.DungeonCrawl
         {
             new Program();
         }
+
+        /// <summary>
+        /// Entry point
+        /// </summary>
 
         private Program()
         {
@@ -39,15 +45,16 @@ namespace Codecool.DungeonCrawl
 
         private void OnStart()
         {
-            int allStuffLeng = (_map.AllStuff.Count) - 1;
-            Character player = (Character)_map.AllStuff[allStuffLeng];
+            System.Console.WriteLine("generacja");
+            Character player = (Character)_map.AllStuff[0];
 
             // Dictionary<string, Actor> allTiles = new Dictionary<string, Actor>();
-            var stage = PerlinApp.Stage;
-            stage.EnterFrameEvent += StageOnEnterFrameEvent;
-
+            _stage = PerlinApp.Stage;
+            _stage.EnterFrameEvent += StageOnEnterFrameEvent;
+            _stage.AddedToStage += IfCheckerOnEnterFrameEvent;
+            System.Console.WriteLine("generacja");
             _mapContainer = new Sprite();
-            stage.AddChild(_mapContainer);
+            _stage.AddChild(_mapContainer);
             DrawMap();
 
             // List<Sprite> allSprites = new List<Sprite>;
@@ -61,7 +68,7 @@ namespace Codecool.DungeonCrawl
                         // allSprites.Add(new Sprite("tiles.png", false, Tiles.SkeletonTile));
                         graphicGFX.X = singleStuff.X * Tiles.TileWidth;
                         graphicGFX.Y = singleStuff.Y * Tiles.TileWidth;
-                        stage.AddChild(graphicGFX);
+                        _stage.AddChild(graphicGFX);
                         break;
                     case "Player":
                         _playerGfx = new Sprite("tiles.png", false, Tiles.PlayerTile);
@@ -69,16 +76,16 @@ namespace Codecool.DungeonCrawl
                         // allSprites.Add(new Sprite("tiles.png", false, Tiles.SkeletonTile));
                         _playerGfx.X = singleStuff.X * Tiles.TileWidth;
                         _playerGfx.Y = singleStuff.Y * Tiles.TileWidth;
-                        stage.AddChild(_playerGfx);
+                        _stage.AddChild(_playerGfx);
                         break;
                     case "Short sword":
-                        graphicGFX = new Sprite("tiles.png", false, Tiles.SwordTile);
+                        Sprite swordGFX = new Sprite("tiles.png", false, Tiles.SwordTile);
                         System.Console.WriteLine("wskoczyl sword");
 
                         // allSprites.Add(new Sprite("tiles.png", false, Tiles.SkeletonTile));
-                        graphicGFX.X = singleStuff.X * Tiles.TileWidth;
-                        graphicGFX.Y = singleStuff.Y * Tiles.TileWidth;
-                        stage.AddChild(graphicGFX);
+                        swordGFX.X = singleStuff.X * Tiles.TileWidth;
+                        swordGFX.Y = singleStuff.Y * Tiles.TileWidth;
+                        _stage.AddChild(swordGFX);
                         break;
                     case "Golden Key":
                         graphicGFX = new Sprite("tiles.png", false, Tiles.KeyTile);
@@ -87,7 +94,7 @@ namespace Codecool.DungeonCrawl
                         // allSprites.Add(new Sprite("tiles.png", false, Tiles.SkeletonTile));
                         graphicGFX.X = singleStuff.X * Tiles.TileWidth;
                         graphicGFX.Y = singleStuff.Y * Tiles.TileWidth;
-                        stage.AddChild(graphicGFX);
+                        _stage.AddChild(graphicGFX);
                         break;
                     default:
                         System.Console.WriteLine("default case in gfx switch");
@@ -104,7 +111,17 @@ namespace Codecool.DungeonCrawl
             _healthTextField.Width = 100;
             _healthTextField.Height = 20;
             _healthTextField.X = _map.Width * Tiles.TileWidth / 2 - 50;
-            stage.AddChild(_healthTextField);
+            _stage.AddChild(_healthTextField);
+
+            _additionalText = new TextField(
+                PerlinApp.FontRobotoMono.CreateFont(18),
+                " ",
+                false);
+            _additionalText.HorizontalAlign = HorizontalAlignment.Center;
+            _additionalText.Width = 100;
+            _additionalText.Height = 20;
+            _additionalText.X = _map.Width * Tiles.TileWidth / 2 + 50;
+            _stage.AddChild(_additionalText);
 
             //********************************
             //Czy da się w tym kontekscie uzyc FORa
@@ -172,40 +189,60 @@ namespace Codecool.DungeonCrawl
             }
         }
 
+        private void IfCheckerOnEnterFrameEvent(DisplayObject target)
+        {
+            System.Console.WriteLine("fffffffffffffffffffff");
+
+            _healthTextField.Text = "ffsadasdasdadsasdfffff";
+        }
+
         // this gets called every frame
+        //public delegate void EnterFrame(DisplayObject target, float elapsedTimeSecs);
         private void StageOnEnterFrameEvent(DisplayObject target, float elapsedtimesecs)
         {
+            Character player = (Character)_map.AllStuff[0];
+
             // process inputs
-            int allStuffLeng = (_map.AllStuff.Count) - 1;
-            Player player = (Player)_map.AllStuff[allStuffLeng];
             if (KeyboardInput.IsKeyPressedThisFrame(Veldrid.Key.Up))
             {
-                _map.AllStuff[allStuffLeng].Move(0, -1);
+                _map.AllStuff[0].Move(0, -1);
             }
 
             if (KeyboardInput.IsKeyPressedThisFrame(Veldrid.Key.Down))
             {
-                _map.AllStuff[allStuffLeng].Move(0, 1);
+                _map.AllStuff[0].Move(0, 1);
             }
 
             if (KeyboardInput.IsKeyPressedThisFrame(Veldrid.Key.Left))
             {
-                _map.AllStuff[allStuffLeng].Move(-1, 0);
+                _map.AllStuff[0].Move(-1, 0);
             }
 
             if (KeyboardInput.IsKeyPressedThisFrame(Veldrid.Key.Right))
             {
-                _map.AllStuff[allStuffLeng].Move(1, 0);
+                _map.AllStuff[0].Move(1, 0);
             }
 
-            if (KeyboardInput.IsKeyPressedThisFrame(Veldrid.Key.C))
+            if (KeyboardInput.IsKeyPressedThisFrame(Veldrid.Key.Space))
             {
-                player.CollectItem();
+                _healthTextField.Text = "fffffff";
             }
+
+            if (player.Cell.Equipment?.IsNotCollected ?? false)
+            {
+                _additionalText.Text = "Collect it mutherfucker! (by clicking C of coz)";
+                if (KeyboardInput.IsKeyPressedThisFrame(Veldrid.Key.C))
+                {
+                    System.Console.WriteLine("you collected item");
+                    player.CollectItem();
+                    _mapContainer.RemoveAllChildren();
+                }
+            }
+            else { _additionalText.Text = " "; }
 
             //render changes
-            _playerGfx.X = _map.AllStuff[allStuffLeng].X * Tiles.TileWidth;
-            _playerGfx.Y = _map.AllStuff[allStuffLeng].Y * Tiles.TileWidth;
+            _playerGfx.X = _map.AllStuff[0].X * Tiles.TileWidth;
+            _playerGfx.Y = _map.AllStuff[0].Y * Tiles.TileWidth;
         }
     }
 }

@@ -70,7 +70,7 @@ namespace Codecool.DungeonCrawl.Logic
                             case '@':
                                 cell.Type = CellType.Floor;
                                 cell.Actor = new Player(cell);
-                                map.AllStuff.Add(new Player(cell));
+                                map.AllStuff.Insert(0, new Player(cell));
                                 break;
                             default:
                                 throw new InvalidDataException($"Unrecognized character: '{line[x]}'");

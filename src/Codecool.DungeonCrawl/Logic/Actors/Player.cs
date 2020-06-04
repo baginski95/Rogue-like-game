@@ -26,6 +26,8 @@ namespace Codecool.DungeonCrawl.Logic.Actors
         public override void CollectItem()
         {
             System.Console.WriteLine("collected!! ");
+            Cell currentCell = Cell.GetCell();
+            currentCell.Equipment = null;
         }
     }
 }

@@ -59,6 +59,15 @@ namespace Codecool.DungeonCrawl.Logic
         }
 
         /// <summary>
+        /// Returns a cell in the given distance
+        /// </summary>
+        /// <returns>The cell</returns>
+        public Cell GetCell()
+        {
+            return _gameMap.GetCell(X, Y);
+        }
+
+        /// <summary>
         /// Gets the type of this cell as string.
         /// </summary>
         public string Tilename => Type.ToString();
