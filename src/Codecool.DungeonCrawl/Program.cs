@@ -177,6 +177,7 @@ namespace Codecool.DungeonCrawl
         {
             // process inputs
             int allStuffLeng = (_map.AllStuff.Count) - 1;
+            Player player = (Player)_map.AllStuff[allStuffLeng];
             if (KeyboardInput.IsKeyPressedThisFrame(Veldrid.Key.Up))
             {
                 _map.AllStuff[allStuffLeng].Move(0, -1);
@@ -195,6 +196,11 @@ namespace Codecool.DungeonCrawl
             if (KeyboardInput.IsKeyPressedThisFrame(Veldrid.Key.Right))
             {
                 _map.AllStuff[allStuffLeng].Move(1, 0);
+            }
+
+            if (KeyboardInput.IsKeyPressedThisFrame(Veldrid.Key.C))
+            {
+                player.CollectItem();
             }
 
             //render changes

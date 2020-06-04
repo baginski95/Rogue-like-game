@@ -22,6 +22,11 @@ namespace Codecool.DungeonCrawl.Logic.Actors
         /// </summary>
         public int Health { get; private set; }
 
+        /// <summary>
+        /// Gets this actors health
+        /// </summary>
+        public List<Equipment> Inventory = new List<Equipment>();
+
         ///// <summary>
         ///// Moves this actor by the given amount
         ///// </summary>
@@ -57,6 +62,6 @@ namespace Codecool.DungeonCrawl.Logic.Actors
         /// <summary>
         /// lorem ipsum
         /// </summary>
-        protected abstract void CollectItem();
+        public abstract void CollectItem();
     }
 }
