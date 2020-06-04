@@ -22,32 +22,37 @@ namespace Codecool.DungeonCrawl.Logic.Actors
         /// </summary>
         public int Health { get; private set; }
 
-        /// <summary>
-        /// Moves this actor by the given amount
-        /// </summary>
-        /// <param name="dx">X amoount</param>
-        /// <param name="dy">Y amount</param>
-        public void Move(int dx, int dy)
-        {
-            Cell nextCell = Cell.GetNeighbor(dx, dy);
-            CellType cellType = nextCell.Type;
+        ///// <summary>
+        ///// Moves this actor by the given amount
+        ///// </summary>
+        ///// <param name="dx">X amoount</param>
+        ///// <param name="dy">Y amount</param>
+        //public void Move(int dx, int dy)
+        //{
+        //    Cell nextCell = Cell.GetNeighbor(dx, dy);
+        //    CellType cellType = nextCell.Type;
 
-            //System.Console.WriteLine(nextCell.GameMap.Skeleton.GetType());
+        //    //System.Console.WriteLine(nextCell.GameMap.Skeleton.GetType());
 
-            // null propagation + null coalescing - jezeli aktor nie jest null to
-            // zwracant IsPassable, a jesli nie to zwraca Actora.
-            // Jesli null po lewej to zwroci null to zwraca to co po prawej
-            if (nextCell.Actor?.IsNotPassable ?? false)
-            { Console.WriteLine("strange if"); }
-            else if (cellType == CellType.Wall)
-            { Console.WriteLine("else if"); }
-            else
-            {
-                Cell.Actor = null;
-                nextCell.Actor = this;
-                Cell = nextCell;
-            }
-        }
+        //    // null propagation + null coalescing - jezeli aktor nie jest null to
+        //    // zwracant IsPassable, a jesli nie to zwraca Actora.
+        //    // Jesli null po lewej to zwroci null to zwraca to co po prawej
+        //    if (nextCell.Actor?.IsNotPassable ?? false)
+        //    { Console.WriteLine("strange if"); }
+        //    else if (cellType == CellType.Wall)
+        //    { Console.WriteLine("else if"); }
+        //    else
+        //    {
+        //        Cell.Actor = null;
+        //        nextCell.Actor = this;
+        //        Cell = nextCell;
+        //    }
+
+        //    if (Cell.Equipment?.IsNotCollected ?? false)
+        //    {
+        //        Console.WriteLine("collected");
+        //    }
+        //}
 
         /// <summary>
         /// lorem ipsum

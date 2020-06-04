@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using Codecool.DungeonCrawl.Logic.Actors;
 
 namespace Codecool.DungeonCrawl.Logic
@@ -9,36 +10,40 @@ namespace Codecool.DungeonCrawl.Logic
     public class GameMap
     {
         /// <summary>
-        /// The player
+        /// List with everything added to map
         /// </summary>
-        public Player Player;
+        public List<Actor> AllStuff = new List<Actor>();
+        ///// <summary>
+        ///// The player
+        ///// </summary>
+        //public Player Player;
 
-        /// <summary>
-        /// A sample enemy
-        /// </summary>
-        public Skeleton Skeleton1;
+        ///// <summary>
+        ///// A sample enemy
+        ///// </summary>
+        //public Skeleton Skeleton1;
 
-        /// <summary>
-        /// A sample enemy
-        /// </summary>
-        public Skeleton Skeleton2;
+        ///// <summary>
+        ///// A sample enemy
+        ///// </summary>
+        //public Skeleton Skeleton2;
 
-        // public Character Skeleton = new Skeleton
+        //// public Character Skeleton = new Skeleton
 
-        /// <summary>
-        /// A sample enemy arrayList
-        /// </summary>
-        public ArrayList Skeletons = new ArrayList();
+        ///// <summary>
+        ///// A sample enemy arrayList
+        ///// </summary>
+        //public ArrayList Skeletons = new ArrayList();
 
-        /// <summary>
-        /// First key
-        /// </summary>
-        public Key Key;
+        ///// <summary>
+        ///// First key
+        ///// </summary>
+        //public Key Key;
 
-        /// <summary>
-        /// A basic weapon - Sword
-        /// </summary>
-        public Weapon Sword;
+        ///// <summary>
+        ///// A basic weapon - Sword
+        ///// </summary>
+        //public Weapon Sword;
         private readonly Cell[,] _cells;
 
         /// <summary>

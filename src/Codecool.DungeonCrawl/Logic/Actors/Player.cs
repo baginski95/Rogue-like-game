@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace Codecool.DungeonCrawl.Logic.Actors
 {
     /// <summary>
@@ -15,7 +17,7 @@ namespace Codecool.DungeonCrawl.Logic.Actors
         }
 
         /// <inheritdoc/>
-        public override string Tilename => "player";
+        public override string Tilename => "Player";
 
         /// <inheritdoc/>
         public override bool IsNotPassable => false;

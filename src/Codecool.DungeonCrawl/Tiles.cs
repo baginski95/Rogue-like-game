@@ -57,5 +57,10 @@ namespace Codecool.DungeonCrawl
         {
             return new Rectangle(i * (TileWidth + 1), j * (TileWidth + 1), TileWidth, TileWidth);
         }
+
+        /// <summary>
+        /// Dict with all kind of used tiles
+        /// </summary>
+        public static Dictionary<string, Rectangle> AllTiles = new Dictionary<string, Rectangle>();
     }
 }

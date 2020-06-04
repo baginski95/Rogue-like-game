@@ -47,26 +47,30 @@ namespace Codecool.DungeonCrawl.Logic
                                 cell.Type = CellType.Floor;
 
                                 // TODO change this code to allow more than one enemy
-                                map.Sword = new Weapon(10, "Short sword", cell);
+                                cell.Equipment = new Weapon(10, "Short sword", cell);
+                                map.AllStuff.Add(new Weapon(10, "Short sword", cell));
                                 break;
                             case 'K':
                                 cell.Type = CellType.Floor;
 
                                 // TODO change this code to allow more than one enemy
-                                map.Key = new Key(cell, "Golden Key");
+                                cell.Equipment = new Key(cell, "Golden Key");
+                                map.AllStuff.Add(new Weapon(10, "Golden Key", cell));
                                 break;
                             case 's':
                                 cell.Type = CellType.Floor;
                                 System.Console.WriteLine("creating skeleton");
 
                                 // TODO change this code to allow more than one enemy
-                                skeletons.Add(new Skeleton(cell));
+                                cell.Actor = new Skeleton(cell);
+                                map.AllStuff.Add(new Skeleton(cell));
 
                                 // map.Skeleton = new Skeleton(cell);
                                 break;
                             case '@':
                                 cell.Type = CellType.Floor;
-                                map.Player = new Player(cell);
+                                cell.Actor = new Player(cell);
+                                map.AllStuff.Add(new Player(cell));
                                 break;
                             default:
                                 throw new InvalidDataException($"Unrecognized character: '{line[x]}'");
@@ -75,7 +79,6 @@ namespace Codecool.DungeonCrawl.Logic
                 }
             }
 
-            map.Skeletons = skeletons;
             return map;
         }
     }

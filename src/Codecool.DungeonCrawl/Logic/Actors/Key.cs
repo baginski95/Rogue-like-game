@@ -26,7 +26,7 @@ namespace Codecool.DungeonCrawl.Logic.Actors
         public string KeyType { get; }
 
         /// <inheritdoc/>
-        public override bool IsCollected => false;
+        public override bool IsNotCollected => false;
 
         /// <inheritdoc/>
         public override bool IsNotPassable => false;

@@ -43,6 +43,11 @@ namespace Codecool.DungeonCrawl.Logic
         public Actor Actor;
 
         /// <summary>
+        /// The equipment on the cell, null of none.
+        /// </summary>
+        public Equipment Equipment;
+
+        /// <summary>
         /// Returns a cell in the given distance
         /// </summary>
         /// <param name="dx">X distance from this cell</param>

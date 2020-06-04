@@ -21,6 +21,6 @@ namespace Codecool.DungeonCrawl.Logic.Actors
         /// <summary>
         /// Gets a value indicating whether - idnicated if item was already collected
         /// </summary>
-        public abstract bool IsCollected { get; }
+        public abstract bool IsNotCollected { get; }
     }
 }

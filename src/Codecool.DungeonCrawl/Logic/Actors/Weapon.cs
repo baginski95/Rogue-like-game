@@ -53,6 +53,6 @@ namespace Codecool.DungeonCrawl.Logic.Actors
         public override bool IsNotPassable => false;
 
         /// <inheritdoc/>
-        public override bool IsCollected => false;
+        public override bool IsNotCollected => true;
     }
 }
