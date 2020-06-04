@@ -178,6 +178,7 @@ namespace Codecool.DungeonCrawl
             // process inputs
             int allStuffLeng = (_map.AllStuff.Count) - 1;
             Player player = (Player)_map.AllStuff[allStuffLeng];
+            Cell cell = player.Cell;
             if (KeyboardInput.IsKeyPressedThisFrame(Veldrid.Key.Up))
             {
                 _map.AllStuff[allStuffLeng].Move(0, -1);
@@ -201,6 +202,11 @@ namespace Codecool.DungeonCrawl
             if (KeyboardInput.IsKeyPressedThisFrame(Veldrid.Key.C))
             {
                 player.CollectItem();
+            }
+
+            if (cell.Equipment?.IsNotCollected ?? false)
+            {
+                System.Console.WriteLine("tutuaj!");
             }
 
             //render changes
